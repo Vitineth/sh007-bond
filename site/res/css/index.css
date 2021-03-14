@@ -1,0 +1,63 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.spacer {
+    height: 2pc;
+}
+
+svg {
+    height: 85%;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    position: relative;
+    /*background: linear-gradient(to right, red 0%, red 0%, white 0%, white 100%);*/
+}
+
+.progress .color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: red;
+
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+h2 {
+    background: #2d3436;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#ads,#advertisers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ads {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: inline-block;
+    margin: 3px;
+    padding: 14px;
+    word-break: break-word;
+    max-width: 7pc;
+    border-bottom: 3px solid;
+}
+
+/*# sourceMappingURL=index.css.map */

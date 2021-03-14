@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>Init-Website</title>
+
+    <link rel="stylesheet" href="/res/css/index.css" />
+    <link rel="stylesheet" href="/vendor/skeleton.min.css" />
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.6.0/d3.js"
+            integrity="sha512-xRVUSMbP6XDZjdfwAYasB3lbIHCIfbHRUjJgSLKDXNi7WD/aJdLBd0Hcd3xbzA3Ys0pSj1uzHk6VZ+AC8ojNPA=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-collection/1.0.5/d3-collection.min.js"
+            integrity="sha512-wYLIhsNaJ6cBEcFIgAtY0ncVV3KEzE95+32OfOdQJQkEfZVrWOn+N2woUPaBCuW8N6S7++72Y7XlOPZ/3U7X2w=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-force/1.1.0/d3-force.js"></script>
+
+    <script src="https://d3js.org/d3-color.v2.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v2.js"></script>
+    <script src="https://d3js.org/d3-ease.v2.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v2.js"></script>
+    <script src="https://d3js.org/d3-selection.v2.js"></script>
+    <script src="https://d3js.org/d3-timer.v2.js"></script>
+    <script src="https://d3js.org/d3-transition.v2.js"></script>
+    <script src="https://d3js.org/d3-drag.v2.js"></script>
+    <script src="https://d3js.org/d3-zoom.v2.js"></script>
+    <script src="https://unpkg.com/3d-force-graph"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js"></script>
+
+    <script src="/vendor/circlepacker.min.js"></script>
+</head>
+
+<body>
+<h1>Init-Website: 2020-10-26T18:35:17.653Z</h1>
+<h2>What are you hearing?</h2>
+<div id="container" class="container">
+    <p>This graph shows all the messages being said in all group chats that you are a part of. Circles are sized based
+        on frequency, the most its said the bigger the circle and the stronger the forces. Feel free to pan and zoom
+        around. The animation will stop after 60 seconds to keep the speed of the page up! Any words said less than 100
+        times will be hidden, otherwise you get crazy amounts of values</p>
+</div>
+<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" id="what-words"></svg>
+<div class="progress" data-progress-for="what-words">
+    <div class="color"></div>
+</div>
+
+<div class="spacer"></div>
+<h2>Who are you talking to?</h2>
+<div class="container">
+    <p>Not a sign of going crazy this time, this graph shows you connections between you and everyone in group chats.
+        Anyone in a group together has a link placed between them. This graph will lag a fair amount but will stop
+        moving after 60 seconds. </p>
+</div>
+<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" id="who-me"></svg>
+<div class="progress" data-progress-for="who-me">
+    <div class="color"></div>
+</div>
+
+<h2>What am I saying?</h2>
+<div class="container">
+    <p>Ever feel like you lose your train of thought right in the middle of... anyway this graph shows what words just
+        you are saying! This follows the same rules as What are you hearing but only for your own words this time. Think
+        of this as the more narcissistic version of that chart</p>
+</div>
+<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" id="what-me"></svg>
+<div class="progress" data-progress-for="what-me">
+    <div class="color"></div>
+</div>
+
+<h2>What am I sending?</h2>
+<div class="container">
+    <p>Like an overworked postman, you're messages carry a lot of stuff. This graph shows what you're sending in each
+        group chat. Circles are sized by the proportion of messages sent in each chat. You can hover over each circle to
+        see the group that it is a part of and answer the clearly most important question, who's getting the most
+        gifs?</p>
+</div>
+<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" id="proportions"></svg>
+<div class="progress" data-progress-for="proportions">
+    <div class="color"></div>
+</div>
+
+<h2>What do I like?</h2>
+<div class="container">
+    <p>We all love advertisers and their definitely not creepy intent to learn as much about you as possible. So here
+        are the things that facebook thinks you like in your adverts! See if you can spot any similarities to the ads
+        you see. Because this is definitely all the info they have... absolutely...</p>
+</div>
+<div id="ads"></div>
+
+<h2>Who's got my data?</h2>
+<div class="container">
+    <p>It turns out that other apps link with facebook to link in all your data. This chart gives you a list of apps
+        which produce events linked into your facebook account. Bubble size indicates the amount of events they have
+        recorded with Facebook. Think of it like following you but more digital and acceptable</p>
+</div>
+<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" id="advertisers"></svg>
+<div class="progress" data-progress-for="advertisers">
+    <div class="color"></div>
+</div>
+
+<div id="3d-graph"></div>
+
+<script src="/res/js/gtlf.js"></script>
+<script src="/res/js/index.js"></script>
+<script src="/res/js/who.js"></script>
+<script src="/res/js/what.js"></script>
+<script src="/res/js/proportions.js"></script>
+<script src="/res/js/echoar.js"></script>
+<script src="/res/js/ads.js"></script>
+<script src="/res/js/mydata.js"></script>
+<script>
+    $(function () {
+        // formWhoCircle('who-me', 'container', '/res/data/chat-relations-flat-obj.json');
+        // ;
+
+        // fbd.echoar('3d-graph', '/res/data/chat-relations-flat-obj.json');
+        fbd.ads('ads', '/res/data/adinterest.json');
+        fbd.advertisers('advertisers', '/res/data/off-facebook.json');
+        // Promise.resolve()
+        //     .then(() => fbd.what('what-words', '/res/data/words.json'))
+        //     .then(() => fbd.who('who-me', '/res/data/chat-relations-flat-obj.json'))
+        //     .then(() => fbd.what('what-me', '/res/data/own-words.json'))
+        //     .then(() => fbd.proportions('proportions', '/res/data/thread-proportions.json'))
+        ;
+    });
+    // fbd.what('what-own-words', '/res/data/own-words.json', 40);
+    // fbd.what('what-words', '/res/data/words.json', 100);
+</script>
+</body>
+</html>

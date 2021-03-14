@@ -232,3 +232,16 @@ tmp/
 temp/
 
 # End of https://www.toptal.com/developers/gitignore/api/node,jetbrains
+
+cache/
+demo/
+site/res/js/bak
+site/res/js/same-but-nice
+site/res/data/
+site/res/sass/
+site/utils/
+site/vendor/
+.ignore/
+
+failed.txt
+lookup.json
