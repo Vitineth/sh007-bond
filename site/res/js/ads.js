@@ -14,5 +14,7 @@
                 element.append($('<div>').addClass('ads').css('border-color', colors[index++ % colors.length]).text(e));
             }
         })
+
+        return Promise.resolve();
     }
 })(window.fbd === undefined ? window.fbd = {} : window.fbd);

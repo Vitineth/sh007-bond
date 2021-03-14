@@ -67,7 +67,7 @@
             const g = ForceGraph3D({})(document.getElementById(canvasID)).graphData(graph);
 
             const start = Date.now();
-            const timeToSim = 60000;
+            const timeToSim = 10000;
             g
                 // .warmupTicks(5000)
                 .nodeRelSize(10)
@@ -88,6 +88,7 @@
                     // document.getElementById('sim-perc').innerText = 'Simulation Running: ' + perc;
                 })
             ;
+            window.gbx = g;
 
             // g.pauseAnimation();
             const link = document.createElement('a');
@@ -120,45 +121,55 @@
 
             g.onEngineStop(() => {
                 console.log('trying');
-                const exporter = new GLTFExporter();
-                exporter.parse(g.scene(), function (result) {
-                    console.log(result);
+                // const gm = gbx.scene().children.find((e) => e.type === 'Group').children.map((e) => e.geometry);
+                // const bf = BufferGeometryUtils.mergeBufferGeometries(gm);
+                // const x = new THREE.Mesh(bf, new THREE.MeshBasicMaterial({color: 0xff0ff}));
+                // const obj = new OBJExporter().parse(x);
+                //
+                // fetch('/compress', {
+                //     method: 'post',
+                //     body: obj,
+                // }).then((d) => d.blob()).then((result) => {
+                //     const fd = new FormData();
+                //     fd.append('key', 'shrill-thunder-5107');
+                //     fd.append('email', 'vitineth@gmail.com');
+                //     fd.append('target_type', '2');
+                //     fd.append('hologram_type', '2');
+                //     fd.append('type', 'upload');
+                //     fd.append('file_model', new Blob([result], {type: 'application/octet-stream'}), `pls.${Date.now()}.glb`);
+                //
+                //     fetch('https://console.echoAR.xyz/upload', {
+                //         method: 'POST',
+                //         mode: 'no-cors',
+                //         headers: {
+                //             'Content-Type': 'multipart/form-data'
+                //         },
+                //         body: fd,
+                //     }).then((d) => {
+                //         console.log(d);
+                //         window.dx = d;
+                //     }).catch(console.error);
+                // }).catch(console.error);
 
-                    const fd = new FormData();
-                    fd.append('key', 'shrill-thunder-5107');
-                    fd.append('email', 'vitineth@gmail.com');
-                    fd.append('target_type', '2');
-                    fd.append('hologram_type', '2');
-                    fd.append('type', 'upload');
-                    fd.append('file_model', new Blob([result], {type: 'application/octet-stream'}), 'pls.glb');
+                // const exporter = new GLTFExporter();
+                // exporter.parse(g.scene(), function (result) {
+                //     console.log(result);
+                //
 
-                    fetch('https://console.echoAR.xyz/upload', {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            // 'Content-Type': 'multipart/form-data'
-                        },
-                        body: fd,
-                    }).then((d) => {
-                        console.log(d);
-                        window.dx = d;
-                    }).catch(console.error);
-                    //
-                    // if (result instanceof ArrayBuffer) {
-                    //
-                    //     saveArrayBuffer(result, 'scene.glb');
-                    //
-                    // } else {
-                    //
-                    //     const output = JSON.stringify(result, null, 2);
-                    //     console.log(output);
-                    //     saveString(output, 'scene.gltf');
-                    //
-                    // }
-                    // downloadJSON( gltf );
-                }, {
-                    binary: true,
-                });
+                // fetch('https://console.echoAR.xyz/upload', {
+                //     method: 'POST',
+                //     mode: 'no-cors',
+                //     headers: {
+                // 'Content-Type': 'multipart/form-data'
+                //         },
+                //         body: fd,
+                //     }).then((d) => {
+                //         console.log(d);
+                //         window.dx = d;
+                //     }).catch(console.error);
+                // }, {
+                //     binary: true,
+                // });
             });
         });
     }
