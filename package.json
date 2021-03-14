@@ -22,6 +22,7 @@
     "gltf-pipeline": "^3.0.2",
     "jsdom-worker": "^0.2.1",
     "logger": "git+https://gitlab.com/vitineth/logger.git",
+    "obj2gltf": "^3.1.0",
     "ts-node": "^9.0.0",
     "web-worker": "^1.0.0"
   },

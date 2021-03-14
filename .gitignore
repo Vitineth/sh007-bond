@@ -245,3 +245,5 @@ site/vendor/
 
 failed.txt
 lookup.json
+
+t.cache.obj
