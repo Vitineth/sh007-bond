@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery" level="project" />
+    <orderEntry type="library" name="d3" level="application" />
+    <orderEntry type="library" name="d3-force" level="application" />
+    <orderEntry type="library" name="d3-collection" level="application" />
+    <orderEntry type="library" name="d3-zoom" level="application" />
+    <orderEntry type="library" name="d3-drag" level="application" />
+    <orderEntry type="library" name="d3-selection" level="application" />
+  </component>
+</module>
